@@ -1,5 +1,6 @@
 import face_recognition as fr
 import os
+import PIL
 
 pics_folder = os.path.join("..", "data", "wiki")
 tolerance = 0.6
@@ -21,7 +22,12 @@ def get_facial_features(max_photos=-1):
             if -1 < max_photos <= len(faces):
                 return faces
             image_path = os.path.join(numbered, a)
-            image = fr.load_image_file(image_path)
-            facial_features = fr.face_landmarks(image)
-            faces.append(facial_features)
+            try:
+                image = fr.load_image_file(image_path)
+                facial_features = fr.face_landmarks(image)
+                faces.append(facial_features)
+            except PIL.UnidentifiedImageError as e:
+                if "mat" not in str(image_path).split("."):
+                    print(e)
+                    exit("Unidentified Image Format")
     return faces
