@@ -29,8 +29,8 @@ def get_facial_features(max_photos=-1):
                 faces.append(facial_features)
             except PIL.UnidentifiedImageError as e:
                 # If the image_path turns out to be invalid, closes the program
-                # If the image_path points to a .mat file, just skip over it
-                if "mat" not in str(image_path).split("."):
+                # If the image_path points to a .mat or .md file, just skip over it
+                if "mat" and "md" not in str(image_path).split("."):
                     print(e)
                     exit("Unidentified Image Format")
     return faces
