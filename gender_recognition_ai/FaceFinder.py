@@ -22,11 +22,14 @@ def get_facial_features(max_photos=-1):
             if -1 < max_photos <= len(faces):
                 return faces
             image_path = os.path.join(numbered, a)
+            # Tries to load an image from the image_path
             try:
                 image = fr.load_image_file(image_path)
                 facial_features = fr.face_landmarks(image)
                 faces.append(facial_features)
             except PIL.UnidentifiedImageError as e:
+                # If the image_path turns out to be invalid, closes the program
+                # If the image_path points to a .mat file, just skip over it
                 if "mat" not in str(image_path).split("."):
                     print(e)
                     exit("Unidentified Image Format")
