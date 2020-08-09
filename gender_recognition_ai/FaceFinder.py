@@ -43,7 +43,7 @@ def get_facial_features(max_photos=-1):
 # Navigates to the pictures folder then returns a list of all the face pixel data
 # The number of faces returned is not more than max_photos in most conditions
 # A value of -1, the default value, for max_photos gets faces from all the photos
-def get_face_encodings(max_photos=-1):
+def get_face_encodings(max_photos=-1, start_folder="00", end_folder="99"):
     faces = []
     # Iterates the folders 00 to 99 in the wiki directory
     for directory in os.listdir(pics_folder):
@@ -70,10 +70,11 @@ def get_face_encodings(max_photos=-1):
 
 
 # Navigates to the data folder and finds the .mat file associated with the pictures
-# then parses out the gender labels and returns them as a numpy array
+# then parses out the gender labels and returns them as a list
 def get_face_labels(max_labels=-1):
     labels = sp.loadmat(labels_file)["wiki"]["gender"][0][0][0]
-    labels = np.array(labels)
     if max_labels > -1:
+        labels = np.array(labels)
         labels.resize(max_labels)
+        list(labels)
     return labels
