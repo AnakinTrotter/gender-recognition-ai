@@ -1,8 +1,11 @@
 import face_recognition as fr
 import os
 import PIL
+import scipy.io.matlab as sp
+import numpy as np
 
 pics_folder = os.path.join("..", "data", "wiki")
+labels_file = os.path.join(pics_folder, "wiki.mat")
 tolerance = 0.6
 frame_thickness = 3
 font_thickness = 2
@@ -64,3 +67,13 @@ def get_face_encodings(max_photos=-1):
                     print(e)
                     exit("Unidentified Image Format")
     return faces
+
+
+# Navigates to the data folder and finds the .mat file associated with the pictures
+# then parses out the gender labels and returns them as a numpy array
+def get_face_labels(max_labels=-1):
+    labels = sp.loadmat(labels_file)["wiki"]["gender"][0][0][0]
+    labels = np.array(labels)
+    if max_labels > -1:
+        labels.resize(max_labels)
+    return labels
