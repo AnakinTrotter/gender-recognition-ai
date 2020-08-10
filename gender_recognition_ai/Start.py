@@ -73,5 +73,3 @@ train_images, test_images, train_labels, \
     test_labels = sklearn.model_selection.train_test_split(faces, labels, test_size=0.2)
 
 print("\nSuccess!\n")
-
-print(train_images)

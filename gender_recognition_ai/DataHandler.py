@@ -45,18 +45,22 @@ def format_face_data(data):
         # Convert the Strings to floats and try to handle
         # any random characters that still made it in
         for i in range(0, len(arr)):
+            if "]" in arr[i]:
+                arr[i] = arr[i].replace("]", "")
+            if "[" in arr[i]:
+                arr[i] = arr[i].replace("[", "")
+            if "\"" in arr[i]:
+                arr[i] = arr[i].replace("\"", "")
+        for i in range(0, len(arr)):
             try:
                 arr[i] = float(arr[i])
             except ValueError as e:
-                if "]" in arr[i]:
-                    arr[i] = arr[i].replace("]", "")
-                elif "[" in arr[i]:
-                    arr[i] = arr[i].replace("[", "")
-                else:
-                    print(e)
-                    exit("Bad Data")
+                arr[i] = float(-69.6969)
+                print(arr)
         # Cut the array down to 128 on the off chance
         # that some extra stragglers made it in
+        if len(arr) != 128:
+            print(arr)
         del arr[128:]
         faces.append(arr)
     return faces
@@ -75,7 +79,7 @@ def clean_data(faces, labels):
     clean_faces = []
     clean_labels = []
     for i in range(0, len(labels)):
-        if not np.isnan(labels[i]):
+        if not np.isnan(labels[i]) and float(-69.6969) not in faces[i]:
             clean_faces.append(faces[i])
             clean_labels.append(labels[i])
     return [clean_faces, clean_labels]
