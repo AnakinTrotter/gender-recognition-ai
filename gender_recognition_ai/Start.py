@@ -3,30 +3,46 @@ import sklearn
 from sklearn import neural_network
 from sklearn.utils import shuffle
 
-training_cases = 6
-start = 20
-end = 21
+print("\n")
+print("Please enter which folder to start on/end on.")
+print("The starting folder is inclusive while the ending folder is not.")
+print("ex: [start, end)")
+print("It's like substring in Java.")
+print("\n")
 
-# labels = FaceFinder.get_face_labels(training_cases, start, end)
-# print(labels)
-# print(len(labels))
+should_prompt = True
+start = -1
+end = -1
 
-faces = FaceFinder.get_face_encodings(training_cases, start, end)
+while should_prompt:
+    try:
+        start = int(input("Starting folder: "))
+        end = int(input("Ending folder: "))
+    except ValueError:
+        print("Input must be an int between 0 and 100!\n")
+        continue
+    if -1 < start < end <= 100:
+        should_prompt = False
+    else:
+        print("Invalid input!\n")
 
-print("Data has been GOTTEN!")
-print("Writing data...")
+faces = FaceFinder.get_face_encodings(start_folder=start, end_folder=end)
+labels = FaceFinder.get_face_labels()
+
+print("Genders: ", labels)
+
+print("\nData has been GOTTEN!")
+print("\nWriting data...")
 DataHandler.write_to_file(faces, labels)
+print("Data saved to data.csv")
 
-print("Testing data reading...")
+print("Reading data...\n")
 data = DataHandler.read_from_file()
 
 faces = DataHandler.format_face_data(data)
 labels = DataHandler.format_label_data(data)
 
-train_images, test_images, train_labels, test_labels = sklearn.model_selection.train_test_split(faces, labels, test_size=0.1)
+train_images, test_images, train_labels, \
+    test_labels = sklearn.model_selection.train_test_split(faces, labels, test_size=0.2)
 
-print(train_images)
-print(train_labels)
-print(test_images)
-print(test_labels)
 print("\nSuccess!\n")
