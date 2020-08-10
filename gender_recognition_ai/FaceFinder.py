@@ -26,6 +26,8 @@ def get_face_encodings(max_photos=-1, start_folder=0, end_folder=100):
         # Iterates through all the jpg files in each numbered directory
         for a in num_dirs:
             image_path = os.path.join(numbered, a)
+            if "UTC" in image_path:
+                continue
             local_path = image_path.replace("\\", "/").replace("../data/wiki/", "")
             # Tries to load an image from the image_path
             try:
@@ -57,5 +59,8 @@ def get_face_labels():
     labels = list(sp.loadmat(labels_file)["wiki"]["gender"][0][0][0])
     paths = list(sp.loadmat(labels_file)["wiki"]["full_path"][0][0][0])
     for a in image_paths:
-        gender_labels.append(labels[paths.index(a)])
+        try:
+            gender_labels.append(labels[paths.index(a)])
+        except ValueError:
+            gender_labels.append(1.0)
     return gender_labels
