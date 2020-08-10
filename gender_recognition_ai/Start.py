@@ -3,10 +3,15 @@ import sklearn
 from sklearn import neural_network
 from sklearn.utils import shuffle
 
-training_cases = -1
+training_cases = 6
+start = 20
+end = 21
 
-faces = FaceFinder.get_face_encodings(training_cases)
-labels = FaceFinder.get_face_labels(training_cases)
+# labels = FaceFinder.get_face_labels(training_cases, start, end)
+# print(labels)
+# print(len(labels))
+
+faces = FaceFinder.get_face_encodings(training_cases, start, end)
 
 print("Data has been GOTTEN!")
 print("Writing data...")
