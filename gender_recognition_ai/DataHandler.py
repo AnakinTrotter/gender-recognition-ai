@@ -69,3 +69,13 @@ def format_label_data(data):
     for a in label_data:
         labels.append(float(a))
     return labels
+
+
+def clean_data(faces, labels):
+    clean_faces = []
+    clean_labels = []
+    for i in range(0, len(labels)):
+        if not np.isnan(labels[i]):
+            clean_faces.append(faces[i])
+            clean_labels.append(labels[i])
+    return [clean_faces, clean_labels]

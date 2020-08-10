@@ -62,7 +62,16 @@ data = DataHandler.read_from_file()
 faces = DataHandler.format_face_data(data)
 labels = DataHandler.format_label_data(data)
 
+clean_data = DataHandler.clean_data(faces, labels)
+faces = clean_data[0]
+labels = clean_data[1]
+
+print(len(faces))
+print(len(labels))
+
 train_images, test_images, train_labels, \
     test_labels = sklearn.model_selection.train_test_split(faces, labels, test_size=0.2)
 
 print("\nSuccess!\n")
+
+print(train_images)

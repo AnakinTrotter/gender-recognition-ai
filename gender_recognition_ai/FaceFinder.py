@@ -1,8 +1,8 @@
-import face_recognition as fr
 import os
+
 import PIL
+import face_recognition as fr
 import scipy.io.matlab as sp
-import numpy as np
 
 pics_folder = os.path.join("..", "data", "wiki")
 labels_file = os.path.join(pics_folder, "wiki.mat")
