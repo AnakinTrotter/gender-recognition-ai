@@ -21,14 +21,14 @@ if "data.csv" in os.listdir():
         else:
             print("Please respond with 'y' for yes or 'n' for no.")
 
-print("\n")
-print("Please enter which folder to start on/end on.")
-print("The starting folder is inclusive while the ending folder is not.")
-print("ex: [start, end)")
-print("It's like substring in Java.")
-print("\n")
-
 if overwrite:
+    print("\n")
+    print("Please enter which folder to start on/end on.")
+    print("The starting folder is inclusive while the ending folder is not.")
+    print("ex: [start, end)")
+    print("It's like substring in Java.")
+    print("\n")
+
     should_prompt = True
     start = -1
     end = -1
