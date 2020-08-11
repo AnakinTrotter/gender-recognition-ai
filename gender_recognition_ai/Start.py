@@ -66,8 +66,9 @@ clean_data = DataHandler.clean_data(faces, labels)
 faces = clean_data[0]
 labels = clean_data[1]
 
-print(len(faces))
-print(len(labels))
+print("\n")
+print("Final face count: ", len(faces))
+print("Final label count: ", len(labels))
 
 train_images, test_images, train_labels, \
     test_labels = sklearn.model_selection.train_test_split(faces, labels, test_size=0.2)
