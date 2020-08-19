@@ -1,4 +1,4 @@
-from gender_recognition_ai import FaceFinder, DataHandler
+from gender_recognition_ai import FaceFinder, DataHandler, GenderNN
 import sklearn
 import os
 import tensorflow as tf
@@ -72,9 +72,6 @@ print("\n")
 print("Final face count: ", len(faces))
 print("Final label count: ", len(labels))
 
-train_images, test_images, train_labels, \
-    test_labels = sklearn.model_selection.train_test_split(faces, labels, test_size=0.2)
-
 print("\nSuccess!\n")
 
 retrain = True
@@ -95,19 +92,6 @@ if "model.h5" in os.listdir():
             print("Please respond with 'y' for yes or 'n' for no.")
 
 if retrain:
-    layer1 = keras.layers.Dense(128)
-    layer2 = keras.layers.Dense(65, activation="relu")
-    layer3 = keras.layers.Dense(1, activation="sigmoid")
-
-    model = keras.Sequential([layer1, layer2, layer3])
-
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-
-    model.fit(train_images, train_labels, epochs=6)
-
-    test_loss, test_acc = model.evaluate(test_images, test_labels)
-    print("Tested acc: ", test_acc*100, "%")
-
-    model.save("model.h5")
+    GenderNN.train_model(faces, labels)
 
 print("\nDone!\n")
