@@ -72,6 +72,7 @@ def format_label_data(data):
     return labels
 
 
+# Removes invalid data from the array
 def clean_data(faces, labels):
     clean_faces = []
     clean_labels = []
