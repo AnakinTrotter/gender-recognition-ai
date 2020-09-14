@@ -1,4 +1,4 @@
-from gender_recognition_ai import FaceFinder, DataHandler, GenderNN
+from gender_recognition_ai import face_finder, data_handler, gendernn
 import sklearn
 import os
 import tensorflow as tf
@@ -48,23 +48,23 @@ if overwrite:
             print("Invalid input!\n")
 
     print("\nProcess started... this may take several hours.\n")
-    faces = FaceFinder.get_face_encodings(start_folder=start, end_folder=end)
-    labels = FaceFinder.get_face_labels()
+    faces = face_finder.get_face_encodings(start_folder=start, end_folder=end)
+    labels = face_finder.get_face_labels()
 
     print("Corresponding genders: ", labels)
 
     print("\nData has been GOTTEN!")
     print("\nWriting data...")
-    DataHandler.write_to_file(faces, labels)
+    data_handler.write_to_file(faces, labels)
     print("Data saved to data.csv")
 
 print("\nReading data...\n")
-data = DataHandler.read_from_file()
+data = data_handler.read_from_file()
 
-faces = DataHandler.format_face_data(data)
-labels = DataHandler.format_label_data(data)
+faces = data_handler.format_face_data(data)
+labels = data_handler.format_label_data(data)
 
-clean_data = DataHandler.clean_data(faces, labels)
+clean_data = data_handler.clean_data(faces, labels)
 faces = clean_data[0]
 labels = clean_data[1]
 
@@ -92,6 +92,6 @@ if "model.h5" in os.listdir():
             print("Please respond with 'y' for yes or 'n' for no.")
 
 if retrain:
-    GenderNN.train_model(faces, labels)
+    gendernn.train_model(faces, labels)
 
 print("\nDone!\n")

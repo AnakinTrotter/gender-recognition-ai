@@ -3,7 +3,7 @@ from tkinter import filedialog, CENTER, NW
 
 from PIL import ImageTk, Image
 
-from gender_recognition_ai import GenderNN
+from gender_recognition_ai import gendernn
 
 root = tkinter.Tk()
 root.geometry("600x400+0+0")
@@ -17,7 +17,8 @@ def open_picture(path="bg.png"):
     w_percent = (width / float(img.size[0]))
     h_size = int((float(img.size[1]) * float(w_percent)))
     img = img.resize((width, h_size), Image.ANTIALIAS)
-    root.geometry("%dx%d+0+0" % (width, h_size))
+    root.geometry("%dx%d+%d+%d" %
+                  (width, h_size, (root.winfo_screenwidth() - width)/2, (root.winfo_screenheight() - h_size*1.25)/2))
     return img
 
 
@@ -37,7 +38,7 @@ def predict_pressed():
     new_picture = ImageTk.PhotoImage(open_picture(root.filename))
     pic_label.configure(image=new_picture)
     pic_label.image = new_picture
-    prediction = GenderNN.make_prediction(root.filename)
+    prediction = gendernn.make_prediction(root.filename)
     gender_label["text"] = "Gender: %s" % prediction
 
 

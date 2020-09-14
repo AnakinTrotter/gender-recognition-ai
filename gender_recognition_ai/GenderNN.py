@@ -33,7 +33,7 @@ def train_model(faces, labels):
 # prediction based on the output of the final neuron where female = (0, 0.5] and male = (0.5, 1)
 def make_prediction(image_path="girl.jpg"):
     if "model.h5" not in os.listdir():
-        print("Please run Start.py to train a model before attempting to load one!")
+        print("Please run start.py to train a model before attempting to load one!")
         exit("No model found")
     model = keras.models.load_model("model.h5")
     try:
