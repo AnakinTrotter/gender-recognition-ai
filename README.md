@@ -10,3 +10,5 @@
  5. Open the PyCharm terminal and type the following: pip install -r requirements.txt
 
 Note: If dlib fails to install double check your python version
+
+Demo: https://youtu.be/0mdLqAV7Dt8
