@@ -1,14 +1,67 @@
 # Gender Recognition AI
- A bot that can tell if someone in a picture is male, female, or neither.
- 
- To setup the project inside of PyCharm:
- 
- 1. Clone the repository
- 2. Navigate to the local repository in file explorer
- 3. Right click and open a PyCharm project in the folder
- 4. Choose a 64 bit Python 3.6 interpreter
- 5. Open the PyCharm terminal and type the following: pip install -r requirements.txt
 
-Note: If dlib fails to install double check your python version
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Demo: https://youtu.be/0mdLqAV7Dt8
+
+---
+
+## Table of Contents
+
+- [gender-recognition-ai](#gender-recognition-ai)
+  - [Table of Contents](#table-of-contents)
+  - [About the Project](#about-the-project)
+  - [About the Author](#about-the-author)
+  - [Prerequisites](#prerequisites)
+  - [Built With](#built-with)
+  - [Technologies Used](#technologies-used)
+  - [Dataset Used](#dataset-used)
+  - [Deployed Link](#deployed-link)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Questions](#questions)
+
+## About the Project
+
+Gender Recognition AI is the result of my experiments with Tensorflow and facial recognition libraries.
+The model is able to distinguish males and females with relatively high accuracy, but currently no other
+genders are supported.
+ 
+ ![screenshot of desktop app predicting female correctly](gender-ai-demo.png)
+ 
+## About the Author
+**Anakin Trotter**
+- [Link to Anakin's GitHub](https://github.com/AnakinTrotter)
+- [Link to Anakin's LinkedIn](https://linkedin.com/in/anakintrotter)
+
+## Prerequisites
+
+Recommended Python 3.6+ then do pip install -r requirements.txt
+
+## Built With
+* [Python](https://www.python.org/downloads/)
+* [TensorFlow](https://pypi.org/project/tensorflow/)
+* [Face Recognition](https://pypi.org/project/face-recognition/)
+
+## Technologies Used
+
+* [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows)
+* [GitHub](https://github.com/)
+  
+## Dataset Used
+* [IMDB-WIKI – 500k+ face images with age and gender labels](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/)
+  
+## Deployed Link
+* [Link to live site](http://gender-recognition-ai.herokuapp.com/)
+* [Link to site repo](https://github.com/AnakinTrotter/gender-recognition-ai-site)
+
+## Contributing
+
+Contributions are encouraged! Please create a pull request with your updated code.
+
+## License
+
+This project is covered under the MIT license.
+
+## Questions
+
+Please create an issue should you have any questions or feature suggestions.
