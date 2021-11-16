@@ -28,6 +28,8 @@ genders are supported.
  
  ![screenshot of desktop app predicting female correctly](gender-ai-demo.png)
  
+[Link to video demonstration](https://youtu.be/0mdLqAV7Dt8)
+ 
 ## About the Author
 **Anakin Trotter**
 - [Link to Anakin's GitHub](https://github.com/AnakinTrotter)
