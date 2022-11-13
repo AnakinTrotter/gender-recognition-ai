@@ -52,8 +52,7 @@ Recommended Python 3.6+ then do pip install -r requirements.txt
 ## Dataset Used
 * [IMDB-WIKI – 500k+ face images with age and gender labels](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/)
   
-## Deployed Link
-* [Link to live site](http://gender-recognition-ai.herokuapp.com/)
+## Deployed Link (site currently down while I move off of Heroku)
 * [Link to site repo](https://github.com/AnakinTrotter/gender-recognition-ai-site)
 
 ## Contributing
