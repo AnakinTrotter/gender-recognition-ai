@@ -1,5 +1,7 @@
 # Gender Recognition AI
 
+[Watch the demo video!](https://www.youtube.com/watch?v=0mdLqAV7Dt8)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
@@ -15,7 +17,6 @@
   - [Built With](#built-with)
   - [Technologies Used](#technologies-used)
   - [Dataset Used](#dataset-used)
-  - [Deployed Link](#deployed-link)
   - [Contributing](#contributing)
   - [License](#license)
   - [Questions](#questions)
@@ -51,9 +52,6 @@ Recommended Python 3.6+ then do pip install -r requirements.txt
   
 ## Dataset Used
 * [IMDB-WIKI – 500k+ face images with age and gender labels](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/)
-  
-## Deployed Link (site currently down while I move off of Heroku)
-* [Link to site repo](https://github.com/AnakinTrotter/gender-recognition-ai-site)
 
 ## Contributing
 
